@@ -34,6 +34,7 @@ jobs:
   terraform-destroy:
     runs-on: ubuntu-latest
     environment: EKS
+    needs: terraform-apply
     steps:
     - name: Terraform Destroy
       run: terraform destroy -auto-approve
