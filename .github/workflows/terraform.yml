@@ -8,33 +8,33 @@ env:
     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 jobs:
-  terraform-apply:
-    name: 'Terraform'
-    runs-on: ubuntu-latest
+ # terraform-apply:
+ #   name: 'Terraform'
+  #  runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+   # steps:
+    #- name: Checkout
+     # uses: actions/checkout@v4
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
+    #- name: Setup Terraform
+     # uses: hashicorp/setup-terraform@v1
 
-    - name: Terraform Init
-      run: terraform init
+    #- name: Terraform Init
+     # run: terraform init
 
-    - name: Terraform Validate
-      run: terraform validate
+    #- name: Terraform Validate
+     # run: terraform validate
 
-    - name: Terraform Plan
-      run: terraform plan -input=false
+    #- name: Terraform Plan
+     # run: terraform plan -input=false
 
-    - name: Terraform Apply
-      run: terraform apply -auto-approve -input=false
+    #- name: Terraform Apply
+     # run: terraform apply -auto-approve -input=false
       
   terraform-destroy:
     runs-on: ubuntu-latest
     environment: EKS
-    needs: terraform-apply
+    #needs: terraform-apply
     steps:
     - name: Terraform Destroy
       run: terraform destroy -auto-approve
