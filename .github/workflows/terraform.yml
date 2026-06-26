@@ -37,4 +37,6 @@ jobs:
     #needs: terraform-apply
     steps:
     - name: Terraform Destroy
+      uses: hashicorp/setup-terraform@v1
+    - name: Terraform Destroy  
       run: terraform destroy -auto-approve
